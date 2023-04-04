@@ -70,10 +70,10 @@ You will only need to make one API call in your application to receive all movie
 
 While it does not need to look exactly the same, it should include the following:
 
-- [ ] `body`
+- [x] `body`
 
-  - [ ] The page's background should be the color `lavender`.
-  - [ ] All non-input text should be of the font `monospace`.
+  - [x] The page's background should be the color `lavender`.
+  - [x] All non-input text should be of the font `monospace`.
 
 - `header`
 
