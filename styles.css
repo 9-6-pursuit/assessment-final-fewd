@@ -29,10 +29,8 @@ img {
 #logo {
   width: 75%;
 }
-
-/* Media Queries */
 @media (max-width: 500px) {
-  section#reviews {
+  #reviews {
     display: none;
   }
 }
