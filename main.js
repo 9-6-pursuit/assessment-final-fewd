@@ -61,6 +61,15 @@ let findMovieByName = (name) => {
   }
 };
 
+commentButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  let newComment = document.createElement("li");
+  newComment.innerHTML += `<strong>${currentMovie.title}</strong>` + " -- ";
+  newComment.innerHTML += commentInput.value;
+  commentInput.value = "";
+  commentList.append(newComment);
+});
+
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
 // So that testing can work as expected for now
 // A non-hacky solution is being researched
