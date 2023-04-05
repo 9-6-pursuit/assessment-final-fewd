@@ -66,18 +66,16 @@ resetReviewsBtn.addEventListener("click", () => {
   }
 });
 
-// Add an event listener to the show people button
-// Add an event listener to the show people button
-showPeopleBtn.addEventListener("click", () => {
-  let movies = [];
+let movies = [];
 
-  // Fetch the list of movies
-  fetch("https://resource-ghibli-api.onrender.com/films")
-    .then((response) => response.json())
-    .then((data) => {
-      movies = data;
-    });
+// Fetch the list of movies
+fetch("https://resource-ghibli-api.onrender.com/films")
+.then((response) => response.json())
+.then((data) => {
+  movies = data;
+});
 
+// Add an event listener to the show people button
   showPeopleBtn.addEventListener("click", () => {
     const movieId = moviesDropdown.value;
     console.log(movieId);
