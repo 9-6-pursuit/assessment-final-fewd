@@ -14,6 +14,7 @@ function run() {
  const detailContainer = document.getElementById("movie-details")
  const showButton = document.getElementById("show-people")
  const resetReview = document.getElementById("reset-reviews")
+ const reviewList = document.getElementById("review-list")
 
  fetch("https://resource-ghibli-api.onrender.com/films")
  .then(response => response.json())
@@ -40,6 +41,17 @@ function run() {
  }
 
 
+ currentMovie = movieSelector.value
+
+
+
+ submitButton.addEventListener("click", event => {
+    event.preventDefault()
+    let newReview = document.createElement("li")
+    newReview.innerHTML += `<strong>${currentMovie.title}</strong>` + " -- "
+    newReview.innerHTML += reviewInput.value
+    reviewList.append(newReview)
+})
 
  
 }
