@@ -34,6 +34,7 @@ moviesDropdown.addEventListener("change", (event) => {
           <p>${data.description}</p>
         `;
       });
+    peopleList.innerHTML = "";
   }
 });
 
@@ -76,12 +77,10 @@ showPeopleBtn.addEventListener("click", () => {
       peopleList.innerHTML = "";
       // Populate the people list with the names of the characters in the selected movie
       data.forEach((character) => {
-        console.log(character)
+        console.log(character);
         const li = document.createElement("li");
         li.textContent = character.name;
         peopleList.appendChild(li);
       });
     });
-  });
-
-
+});
