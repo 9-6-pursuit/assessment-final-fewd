@@ -1,0 +1,38 @@
+main {
+  display: grid;
+  margin: 0 auto;
+  text-align: left;
+  grid-template-rows: span 2;
+  padding-left: 5%;
+  padding-right: 10%;
+}
+
+body {
+  background-color: lavender;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: monospace;
+}
+header {
+  background-color: skyblue;
+}
+
+h1 {
+  font-family: monospace;
+  text-align: right;
+  font-size: 30px;
+}
+img {
+  height: 250px;
+  width: 700px;
+}
+#logo {
+  width: 75%;
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  section#reviews {
+    display: none;
+  }
+}
