@@ -3,8 +3,9 @@ let peopleUrl = "https://resource-ghibli-api.onrender.com/people"
 let movieSelector =document.getElementById(`movieTitleSelector`)
 let reviewButton = document.getElementById(`review:`)
 let displayInfoContainer = document.getElementById(`display-info`)
-// let commentButton = document.getElementById(`comment-submit-button`)
-// let commentList
+let commentButton = document.getElementById(`submit-comment`)
+let commentInput = document.getElementById('comment-input')
+let commentList = document.getElementById('comment-list')
 
 
 
@@ -57,11 +58,11 @@ movieSelector.addEventListener(`click`, event => {
     displayInfoContainer.append(titleHeader)
     
     let releaseYear = document.createElement(`p`)
-    releaseYear.textContent = movie.release_date
+    releaseYear.textContent = currentMovie.release_date
     displayInfoContainer.append(releaseYear)
 
     let description = document.createElement(`p`)
-    description.textContent = movie.description
+    description.textContent = currentMovie.description
     displayInfoContainer.append(description)
 })
 
@@ -76,11 +77,17 @@ let findMovieByValue = value => {
     }
 }
 
-// commentButton.addEventListener(`click`, event => {
-//     event.preventDefault()
-//     console.log(commentInput.value)
-//     let newComment = document.createElement()
-// })
+commentButton.addEventListener("click", event => {
+    event.preventDefault()
+    if (movieSelector.value === "") {
+        alert ("Please select a movie first")
+    } else {
+    let newComment = document.createElement("li")
+    newComment.innerHTML += `<strong>${currentMovie.title}</strong>` + " -- "
+    newComment.innerHTML += commentInput.value
+    commentList.append(newComment)
+    }
+})
 
 
 

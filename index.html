@@ -24,8 +24,8 @@
             <h2>Add a review</h2>
             <form action="#">
                 <label for="review:">Your review:</label><br>
-                <input id="review:" type="text">
-                <input type="submit">
+                <input id="comment-input" type="text">
+                <input type="submit" id="submit-comment">
             </form>
         </section>
         <section>
@@ -37,9 +37,9 @@
             <ol></ol>
             <button id="show-people">Show People</button>
         </section>
-        <section id="reviews">
+        <section id="reviews" class="reviews">
             <h2>Reviews</h2>
-            <ul></ul>
+            <ul id="comment-list"></ul>
             <button id="reset-reviews">Reset Reviews</button>
         </section>
     </main>
