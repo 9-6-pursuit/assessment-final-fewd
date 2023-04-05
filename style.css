@@ -21,7 +21,6 @@ header img{
 }
 
 body section{
-    width: 75%;
-    padding-left: 120px;
-   
+    margin-left: 12.5%;
+   margin-right: 12.5%;
 }
