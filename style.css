@@ -1,0 +1,15 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+
+}
+
+header img{
+    width: 75%;
+    background-color: skyblue;
+}
+
+header h1 {
+    display:flex;
+    justify-content:right;
+}
