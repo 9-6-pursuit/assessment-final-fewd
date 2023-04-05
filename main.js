@@ -67,20 +67,39 @@ resetReviewsBtn.addEventListener("click", () => {
 });
 
 // Add an event listener to the show people button
+// Add an event listener to the show people button
 showPeopleBtn.addEventListener("click", () => {
-  const movieId = moviesDropdown.value;
-  // Fetch the list of people in the selected movie
-  fetch(`https://resource-ghibli-api.onrender.com/films/${movieId}/people`)
+  let movies = [];
+
+  // Fetch the list of movies
+  fetch("https://resource-ghibli-api.onrender.com/films")
     .then((response) => response.json())
     .then((data) => {
-      // Clear the previous people from the list
-      peopleList.innerHTML = "";
-      // Populate the people list with the names of the characters in the selected movie
-      data.forEach((character) => {
-        console.log(character);
-        const li = document.createElement("li");
-        li.textContent = character.name;
-        peopleList.appendChild(li);
-      });
+      movies = data;
     });
+
+  showPeopleBtn.addEventListener("click", () => {
+    const movieId = moviesDropdown.value;
+    console.log(movieId);
+    // Find the selected movie
+    const selectedMovie = movies.find((movie) => movie.id === movieId);
+    // Fetch the list of people in the selected movie
+    fetch(`https://resource-ghibli-api.onrender.com/films/${movieId}/people`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Clear the previous people from the list
+        peopleList.innerHTML = "";
+        // Populate the people list with the names of the characters in the selected movie
+        data.forEach((character) => {
+          console.log(character);
+          // Check if the character is in the selected movie
+          if (character.films.includes(selectedMovie.url)) {
+            const li = document.createElement("li");
+            li.textContent = character.name;
+            peopleList.appendChild(li);
+          }
+        });
+      });
+  });
 });
+
