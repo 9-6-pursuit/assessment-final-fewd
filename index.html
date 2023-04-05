@@ -17,7 +17,7 @@
             <div class="movie-selection">
                 <h2>Select a movie</h2>
                 <select name="" id="titles">
-                    <option value=""></option>
+                    <option id="default" value=""></option>
                 </select>
             </div>
         </section>
@@ -27,14 +27,14 @@
                 <form action="">
                     <label for="review">Your review</label>
                     <input id="review" type="text">
-                    <input type="submit" name="" id="">
+                    <input type="submit" name="" id="submit-review">
                 </form>
             </div>
         </section>
         <section>
             <h2>Movie details</h2>
             <div id="display-info">
-                
+
             </div>
         </section>
         <section>
@@ -43,7 +43,7 @@
                     <form action="">
                         <button id="show-people">Show People</button>
                     </form>
-                    <ol>
+                    <ol class="people-list">
 
                     </ol>
                 </div>
@@ -51,7 +51,7 @@
         <section id="reviews">
             <div class="reviews">
                 <h2>Reviews</h2>
-                <ul>
+                <ul class="review-list">
 
                 </ul>
                 <form action="" class="reviews">
