@@ -5,16 +5,16 @@ function run() {
 
   fetch(ghibliFilms)
     .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
+    .then((films) => {
+      console.log(films);
 
       // Add movie titles to select menu.
 
       const titles = document.getElementById("titles");
 
-      for (let i = 0; i < json.length; i++) {
+      for (let i = 0; i < films.length; i++) {
         const option = document.createElement("option");
-        const { id, title, release_date, description } = json[i];
+        const { id, title, release_date, description } = films[i];
         option.value = id;
         option.textContent = title;
         titles.append(option);
@@ -38,33 +38,6 @@ function run() {
           displayInfo.append(displayTitle, releaseYear, movieDescription);
         });
 
-        // Add reviews.
-
-        const review = document.getElementById("review");
-
-        review.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          // If no movie selected, error submitting review.
-
-          if (!titles.length) {
-            alert("Please select a movie first");
-          }
-
-          //   const reviews = document.getElementById("reviews");
-
-          //   const ul = document.getElementById("#reviews ul");
-
-          //   const li = document.createElement("li");
-
-          //   li.textContent = event.target.review.value;
-
-          //   h2.append(ul);
-
-          //   ul.append(li);
-        });
-        // Reset reviews button.
-
         // Show people when button is clicked.
 
         const showPeople = document.getElementById("show-people");
@@ -73,6 +46,38 @@ function run() {
           event.preventDefault();
         });
       }
+      // Add reviews.
+
+      const form = document.querySelector("form");
+
+      const ul = document.querySelector("section ul");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // If no movie selected, error submitting review
+
+        // if (!films.length) {
+        //   alert("Please select a film.");
+        // } else {
+        const reviewInput = event.target.review;
+        const li = document.createElement("li");
+        li.innerHTML =
+          `<strong>Movie Title:</strong> ` + `${reviewInput.value}`;
+        ul.append(li);
+        form.reset();
+        // }
+
+        // Reset Reviews
+
+        const resetReviews = document.getElementById("reset-reviews");
+
+        resetReviews.addEventListener("click", (event) => {
+          event.preventDefault();
+          const allReviews = document.querySelector("main section ul li");
+          allReviews.remove();
+        });
+      });
     });
 }
 
