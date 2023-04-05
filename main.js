@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 fetch("https://resource-ghibli-api.onrender.com/films")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    // console.log(data);
     data.forEach((movie) => {
       const option = document.createElement("option");
       option.value = movie.id;
@@ -30,7 +30,7 @@ moviesDropdown.addEventListener("change", (event) => {
         // Populate the display-info div with the movie details
         displayInfo.innerHTML = `
           <h3>${data.title}</h3>
-          <p>Released: ${data.release_date}</p>
+          <p>${data.release_date}</p>
           <p>${data.description}</p>
         `;
       });
@@ -43,12 +43,11 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const movieTitle = moviesDropdown.options[moviesDropdown.selectedIndex].text;
   const review = document.getElementById("review").value;
-
+  // Add an alert if button clicked but no movie is selected
   if (!movieTitle) {
     alert("Please select a movie first");
     return;
   }
-
   // Create a new li element for the review and append it to the reviews list
   const li = document.createElement("li");
   li.innerHTML = `<strong>${movieTitle}</strong>: ${review}`;
@@ -67,37 +66,33 @@ resetReviewsBtn.addEventListener("click", () => {
 });
 
 let movies = [];
-
 // Fetch the list of movies
 fetch("https://resource-ghibli-api.onrender.com/films")
-.then((response) => response.json())
-.then((data) => {
-  movies = data;
-});
-
-// Add an event listener to the show people button
-  showPeopleBtn.addEventListener("click", () => {
-    const movieId = moviesDropdown.value;
-    console.log(movieId);
-    // Find the selected movie
-    const selectedMovie = movies.find((movie) => movie.id === movieId);
-    // Fetch the list of people in the selected movie
-    fetch(`https://resource-ghibli-api.onrender.com/films/${movieId}/people`)
-      .then((response) => response.json())
-      .then((data) => {
-        // Clear the previous people from the list
-        peopleList.innerHTML = "";
-        // Populate the people list with the names of the characters in the selected movie
-        data.forEach((character) => {
-          console.log(character);
-          // Check if the character is in the selected movie
-          if (character.films.includes(selectedMovie.url)) {
-            const li = document.createElement("li");
-            li.textContent = character.name;
-            peopleList.appendChild(li);
-          }
-        });
-      });
+  .then((response) => response.json())
+  .then((data) => {
+    movies = data;
   });
-
-
+// Add an event listener to the show people button
+showPeopleBtn.addEventListener("click", () => {
+  const movieId = moviesDropdown.value;
+  // console.log(movieId);
+  // Find the selected movie
+  const selectedMovie = movies.find((movie) => movie.id === movieId);
+  // Fetch the list of people in the selected movie
+  fetch(`https://resource-ghibli-api.onrender.com/films/${movieId}/people`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Clear the previous people from the list
+      peopleList.innerHTML = "";
+      // Populate the people list with the names of the characters in the selected movie
+      data.forEach((character) => {
+        // console.log(character);
+        // Check if the character is in the selected movie
+        if (character.films.includes(selectedMovie.url)) {
+          const li = document.createElement("li");
+          li.textContent = character.name;
+          peopleList.appendChild(li);
+        }
+      });
+    });
+});
