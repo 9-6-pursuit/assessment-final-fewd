@@ -101,18 +101,16 @@ showPeople.addEventListener('click', () =>{
 })
 
 function peopleFiller(json, movieId){
-    console.log(movieId)
-    let li = document.createElement('li')
 
     json.forEach(person => {
-        console.log(person.films[0])
+        let li = document.createElement('li')
         if(person.films[0] == `/films/${movieId}`){
             li.textContent = person.name
             listOfPeople.append(li)
         }
     });
 
-    console.log(json)   
+   
 }
 
 
