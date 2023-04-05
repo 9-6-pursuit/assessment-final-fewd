@@ -1,0 +1,26 @@
+
+body{
+    background-color: lavender;
+    font-family: monospace;
+}
+
+header{
+    background-color: skyblue ;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+header h1{
+    text-align: right;
+}
+
+header img{
+    width: 75%
+    
+}
+
+body section{
+    margin-left: 12.5%;
+   margin-right: 12.5%;
+}
