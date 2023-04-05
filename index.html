@@ -10,15 +10,16 @@
 </head>
 <body>
     <header>
-        <img class="" src="images/ghibli-logo.png" alt="Totoro">
+        <img class="" src="./images/ghibli-logo.png" alt="Totoro">
         <h1 class="headerCSS">Ghibli Review App</h1>
 
     </header>
     <main>
         <section>
            <h2>Select a movie</h2> 
-           <select name="movies" id="titles"></select>
-           <option></option>
+           <select name="movies" id="titles">
+            <option value=""></option>
+           </select>
            <!-- remaining options will be populated with the movie titles from the API -->
         </section>
         <section>
@@ -30,10 +31,9 @@
             </form>
         </section>
         <section>
-            <h2>Movie details</h2>
+            <h2>Select an option to view movie information</h2>
             <div id="display-info">
-                <!-- will be populated with h3 and two p elements, when a movie is selected
- -->
+                <!-- will be populated with h3 and two p elements, when a movie is selected -->
             </div>
         </section>
         <section>

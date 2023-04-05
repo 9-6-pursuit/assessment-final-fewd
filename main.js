@@ -74,13 +74,14 @@ function run() {
         resetReview.addEventListener("click", event => {
             reviewList.innerHTML = ""
         })
+        
         orderedList.addEventListener("click", event => {
             countTwo++
             console.log(countTwo)
             studioGhibilMovies.forEach(ele => {
                 if(ele.title === selectMovie.value){
                    console.log(ele.people)
-                   console.log(ele.people.includes('/people/'))
+                //    console.log(ele.people.includes('/people/'))
                     if (countTwo <= 1){
                         if(ele.people.includes('/people/')){
                             let item = document.createElement("li")
@@ -91,7 +92,7 @@ function run() {
                                 fetch(`https://resource-ghibli-api.onrender.com${ele}`)
                                 .then((response) => response.json())
                                 .then((json) => {
-                                    // console.log(json.name)
+                                    console.log(json)
                                     let item = document.createElement("li")
                                     item.textContent = `${json.name}`
                                     orderedListItem.append(item)
