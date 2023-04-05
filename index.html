@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="images/ghibli-logo.png" alt="ghibli-logo">
+        <img src="./images/ghibli-logo.png" alt="Ghibli logo">
         <h1>Ghibli Review App</h1>
     </header>
     <main>
@@ -23,8 +23,8 @@
         <section>
             <h2>Add a review</h2>
             <form action="#">
-                <label for="review:">Your review:</label><br>
-                <input id="comment-input" type="text">
+                <label for="review">Your review:</label><br>
+                <input id="review" type="text">
                 <input type="submit" id="submit-comment">
             </form>
         </section>
@@ -34,7 +34,7 @@
         </section>
         <section>
             <h2>People</h2>
-            <ol></ol>
+            <ol id="people-section"></ol>
             <button id="show-people">Show People</button>
         </section>
         <section id="reviews" class="reviews">
