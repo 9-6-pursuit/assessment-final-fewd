@@ -1,0 +1,32 @@
+body {
+    align-items: center;
+    align-content: center;
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+  
+}
+header {
+    align-self: center;
+}
+.header {
+    align-content: center;
+    align-items: center;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(2);
+    width: 75%;
+}
+
+.header h1 {
+ 
+    grid-column-start: 2;
+}
+
+
+.pic {
+   grid-column-start: 1;
+   width: 80%;
+   
+}
