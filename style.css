@@ -1,0 +1,62 @@
+body{
+    background-color: lavender;
+    font-family: monospace;
+}
+
+header{
+    background: skyblue;
+    width: 75%;
+    height: 200px;
+    margin-left: 150px;
+}
+
+.header img {
+    float: left;
+    width: 400px;
+    height: 200px;
+  }
+
+.header h1{
+    font-weight: bolder;
+    font-style: monospace;
+    text-align: right;
+}
+
+.reviews{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.movie-selector{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.movie-detail-container{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.people {
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.reset-reviews{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+p{
+    font-size: larger;
+}
+
+h3{
+    font-size: larger;
+}
+    
