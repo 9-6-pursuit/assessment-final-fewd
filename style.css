@@ -1,0 +1,52 @@
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    font-family: monospace;
+    background: lavender;
+    
+}
+
+.page-container {
+    /* border: 3px solid black; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 50%;
+}
+
+header {
+    border: 3px solid skyblue;
+    background-color: skyblue;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 75%;
+    height: 150px;
+    font-size: 9pt;
+}
+
+header h1 {
+    text-indent: 100px;
+}
+
+button {
+    border-radius: 5px;
+}
+
+#submit {
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    #reviews {
+        display: none;
+    }
+}
