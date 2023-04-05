@@ -70,43 +70,43 @@ You will only need to make one API call in your application to receive all movie
 
 While it does not need to look exactly the same, it should include the following:
 
-- [ ] `body`
+- [x] `body`
 
-  - [ ] The page's background should be the color `lavender`.
-  - [ ] All non-input text should be of the font `monospace`.
+  - [x] The page's background should be the color `lavender`.
+  - [x] All non-input text should be of the font `monospace`.
 
 - `header`
 
   - [ ] `img`: An image of the studio's logo should be in the header and should be the same height as the header. The image can be found in the `images/` folder
-  - [ ] `h1`: `Ghibli Review App`
-  - [ ] `header`: takes up about 75% of the page's width
-  - [ ] The `header`'s background should be `skyblue`
+  - [x] `h1`: `Ghibli Review App`
+  - [x] `header`: takes up about 75% of the page's width
+  - [x] The `header`'s background should be `skyblue`
 
-- [ ] `main`
+- [x] `main`
 
-  - [ ] `section`
-    - [ ] `h2`: `Select a movie`
-    - [ ] `select` `id` `titles`: starts with one `option` (blank, no value), remaining `option`s will be populated with the movie titles from the API
-  - [ ] `section`
-  - [ ] `h2`: `Add a review`
-    - [ ] `form`
-      - [ ] `label`, `for` = `review`: `Your review`
-      - [ ] `input`, `id` = `review`: type text
-      - [ ] `input`: type submit
-  - [ ] `section`
+  - [x] `section`
+    - [x] `h2`: `Select a movie`
+    - [x] `select` `id` `titles`: starts with one `option` (blank, no value), remaining `option`s will be populated with the movie titles from the API
+  - [x] `section`
+  - [x] `h2`: `Add a review`
+    - [x] `form`
+      - [x] `label`, `for` = `review`: `Your review`
+      - [x] `input`, `id` = `review`: type text
+      - [x] `input`: type submit
+  - [x] `section`
 
-    - [ ] `h2`: `Movie details`
-    - [ ] `div`, `id` = `display-info`: starts empty, will be populated with `h3` and two `p` elements, when a movie is selected
+    - [x] `h2`: `Movie details`
+    - [x] `div`, `id` = `display-info`: starts empty, will be populated with `h3` and two `p` elements, when a movie is selected
 
-  - [ ] `section`
-    - [ ] `h2`: `People`
-    - [ ] `ol`: starts empty, will be populated with
+  - [x] `section`
+    - [x] `h2`: `People`
+    - [x] `ol`: starts empty, will be populated with
       - [ ] `li` as people `names` are added
     - `button`, `id` = `show-people`, text `Show People`
-  - [ ] `section`, `id` = `reviews`
-    - [ ] `h2`: `Reviews`
-    - [ ] `ul`: starts empty, will be populated with `li` as reviews are added
-    - [ ] `button`, `id` = `reset-reviews`, text `Reset Reviews`
+  - [ x] `section`, `id` = `reviews`
+    - [x ] `h2`: `Reviews`
+    - [x] `ul`: starts empty, will be populated with `li` as reviews are added
+    - [x] `button`, `id` = `reset-reviews`, text `Reset Reviews`
 
 You can use this low-fidelity wire-frame to guide your HTML
 
