@@ -11,6 +11,10 @@ let studioGhibilMovies = []
 let movieReview = document.querySelector("form")
 let inputedReview = document.getElementById("review")
 let reviewList = document.querySelector("ul")
+// Reset Review 
+let resetReview = document.getElementById("reset-reviews")
+// a count to make suer the review doenst not wokr until a movie is picked 
+let count = 0
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 function run() {
     fetch(`https://resource-ghibli-api.onrender.com/films`)
@@ -33,6 +37,7 @@ function run() {
         });
 
         selectMovie.addEventListener("change", event => {
+            count++
             studioGhibilMovies.forEach(ele => {
                 if(ele.title === event.target.value){
                     console.log(ele)
@@ -47,17 +52,21 @@ function run() {
         })
         movieReview.addEventListener("submit", event => {
             event.preventDefault()
-            console.log(selectMovie.value)
-            console.log(event.target.review.value)
-            console.log(inputedReview.value)
-            studioGhibilMovies.forEach(ele => {
-                if(ele.title === selectMovie.value){
-                    let reviewItem = document.createElement("li")
-                    reviewItem.innerHTML = `<strong>${selectMovie.value}:</strong> ${inputedReview.value}`
-                    reviewList.append(reviewItem)
-                }
-            })
+            console.log(count)
+            if (count >= 1){
+                studioGhibilMovies.forEach(ele => {
+                    if(ele.title === selectMovie.value){
+                        let reviewItem = document.createElement("li")
+                        reviewItem.innerHTML = `<strong>${selectMovie.value}:</strong> ${inputedReview.value}`
+                        reviewList.append(reviewItem)
+                    }
+                })
+            }
+
             event.target.review.value = ""
+        })
+        resetReview.addEventListener("click", event => {
+            reviewList.innerHTML = ""
         })
     }
 }
