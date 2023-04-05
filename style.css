@@ -1,0 +1,39 @@
+@media (max-width: 500px) {
+    #reviews{
+        display: none;
+    }
+
+
+  }
+
+body {
+    background-color: lavender;
+    font-family: monospace;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 75%;
+}
+main {
+    display: grid;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+/* header CSS */
+header{
+    background-color: skyblue;
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto 300px;
+
+}
+img {
+    height: 150px;
+    width: 200px;
+}
+
+.headerCSS {
+    display: grid;
+    align-items: start;
+    justify-content: end;
+}
