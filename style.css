@@ -1,0 +1,17 @@
+body {
+  background-color: lavender;
+  font-family: monospace;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: skyblue;
+  height: 150px;
+  width: 75%;
+}
+
+header img {
+  height: 150px;
+  align-self: baseline;
+}
