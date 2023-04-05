@@ -2,7 +2,6 @@
 body{
     background-color: lavender;
     font-family: monospace;
-  
 }
 
 header{
@@ -21,3 +20,8 @@ header img{
     
 }
 
+body section{
+    width: 75%;
+    padding-left: 120px;
+   
+}

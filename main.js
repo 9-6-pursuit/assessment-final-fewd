@@ -15,6 +15,7 @@ function run() {
  const showButton = document.getElementById("show-people")
  const resetReview = document.getElementById("reset-reviews")
  const reviewList = document.getElementById("review-list")
+ const peopleSection = document.getElementById("ordered-list")
 
  fetch("https://resource-ghibli-api.onrender.com/films")
  .then(response => response.json())
@@ -95,6 +96,18 @@ resetReview.addEventListener("click", event => {
 })
 
  
+showButton.addEventListener("click", event =>{
+    event.preventDefault()
+   //let people = movie.people
+    let peopleList = document.createElement("list")
+    peopleList.innerHTML += `<strong> ${currentMovie.people} </strong>`
+
+    peopleSection.append(peopleList)
+})
+
+
+
+
 }
 
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
