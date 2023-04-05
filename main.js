@@ -6,6 +6,8 @@ let displayInfoContainer = document.getElementById(`display-info`)
 let commentButton = document.getElementById(`submit-comment`)
 let commentInput = document.getElementById('comment-input')
 let commentList = document.getElementById('comment-list')
+let resetButton = document.getElementById('reset-reviews')
+let showPeopleButton = document.getElementById(`show-people`)
 
 
 
@@ -89,7 +91,38 @@ commentButton.addEventListener("click", event => {
     }
 })
 
+resetButton.addEventListener("click", event => {
+    event.preventDefault()
+    commentList.textContent = ""
+})
 
+
+let peopleList = []
+
+showPeopleButton.addEventListener("click", event => {
+    event.preventDefault()
+    populatePeople()
+})
+
+
+let populatePeople = titles => {
+    for (let i = 0; i < peopleList.length; i++) {
+        const element = array[i];
+        
+    }
+    counter = 0
+    // for (const title of titles) {
+    //     counter +=1 
+    //     if (counter < 13) {
+    //         movieList.push(title)
+    //         console.log(title)
+    //         let newOption = document.createElement(`option`)
+    //         newOption.textContent = title.title
+    //         newOption.value = title.id
+    //         movieSelector.append(newOption)
+    //     }
+    // }
+}
 
 
 
