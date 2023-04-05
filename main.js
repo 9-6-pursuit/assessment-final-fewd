@@ -13,8 +13,12 @@ let inputedReview = document.getElementById("review")
 let reviewList = document.querySelector("ul")
 // Reset Review 
 let resetReview = document.getElementById("reset-reviews")
+// ordered list shows all people who worked on the movie 
+let orderedList = document.getElementById("show-people")
+let orderedListItem = document.querySelector("ol")
 // a count to make suer the review doenst not wokr until a movie is picked 
 let count = 0
+let countTwo = 0
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 function run() {
     fetch(`https://resource-ghibli-api.onrender.com/films`)
@@ -49,6 +53,8 @@ function run() {
                     movieDecription.append(movieDetails)
                 }
             })
+            orderedListItem.innerHTML = ""
+            countTwo = 0
         })
         movieReview.addEventListener("submit", event => {
             event.preventDefault()
@@ -67,6 +73,41 @@ function run() {
         })
         resetReview.addEventListener("click", event => {
             reviewList.innerHTML = ""
+        })
+        orderedList.addEventListener("click", event => {
+            countTwo++
+            console.log(countTwo)
+            studioGhibilMovies.forEach(ele => {
+                if(ele.title === selectMovie.value){
+                   console.log(ele.people)
+                   console.log(ele.people.includes('/people/'))
+                    if (countTwo <= 1){
+                        if(ele.people.includes('/people/')){
+                            let item = document.createElement("li")
+                            item.textContent = `No people found in the API`
+                            orderedListItem.append(item)
+                           } else {
+                            ele.people.forEach(ele => {
+                                fetch(`https://resource-ghibli-api.onrender.com${ele}`)
+                                .then((response) => response.json())
+                                .then((json) => {
+                                    // console.log(json.name)
+                                    let item = document.createElement("li")
+                                    item.textContent = `${json.name}`
+                                    orderedListItem.append(item)
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                })
+            
+                            })                    
+                           }
+                    }
+
+
+                }
+            })
+            
         })
     }
 }
