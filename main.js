@@ -86,6 +86,14 @@ let findMovieByName = name => {
     reviewList.append(newReview)
 })
 
+
+
+resetReview.addEventListener("click", event => {
+    event.preventDefault()
+    let element = document.getElementById("review-list")
+    reviewList.remove()
+})
+
  
 }
 
