@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 2 Ghibli</title>
+    <title>Copy Ghibli</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="main.js" defer></script>
   </head>
@@ -17,7 +17,6 @@
       <section>
         <h2>Select a movie</h2>
         <select name="movies-dropdown" id="movies-dropdown">
-            <!-- drop-down will be populated via DOM -->
           <option></option>
         </select>
       </section>
@@ -31,18 +30,15 @@
       </section>
       <section>
         <h2>Movie details</h2>
-        <!-- when movie selected, DOM will populate w/h3 and 2 p tags -->
         <div id="display-info"></div>
       </section>
       <section>
         <h2>People</h2>
-        <!-- starts empty, will be populated with li as people names are added -->
-        <ol></ol>
+        <ol id="peopleList"></ol>
         <button id="show-people">Show People</button>
       </section>
       <section id="reviews">
         <h2>Reviews</h2>
-        <!-- starts empty, will be populated with li as reviews are added -->
         <ul></ul>
         <button id="reset-reviews">Reset Reviews</button>
       </section>
