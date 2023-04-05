@@ -1,0 +1,24 @@
+
+ @media (max-width: 500px) {
+    #reviews {
+        display: none;
+    }
+}
+body {
+    background-color: lavender;
+    font-family: monospace;
+    display: grid;
+    
+}
+
+.header.header {
+    background-color: skyblue;
+    width: 75%
+    height:100px;
+}
+
+
+.header h1 {
+    padding-right: 30px;
+    text-align: right;
+}
