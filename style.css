@@ -1,0 +1,23 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+}
+
+/* header CSS */
+header{
+    background-color: skyblue;
+    /* width: 75%; */
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+img {
+    height: 150px;
+    width: 200px;
+}
+
+.headerCSS {
+    display: grid;
+    align-items: start;
+    justify-content: end;
+}
