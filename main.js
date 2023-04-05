@@ -25,29 +25,31 @@ function run(movies) {
         select.append(option);
     });
 
-    moviesData = JSON.parse(JSON.stringify(movies));
+    // moviesData = JSON.parse(JSON.stringify(movies));
+    let peopleShowed = false;
     let selectedTitle = "";
     let currentMovie = null;
     select.addEventListener("change", (event) => {
         selectedTitle = select.options[select.selectedIndex].text;
         people.innerHTML = "";
+        peopleShowed = false;
         if (select.value) {
             // event.preventDefault();
 
-            moviesData.forEach(movie => {
-                if (movie.title === select.options[select.selectedIndex].text) {
-                    currentMovie = movie;
-                    showMovieInfo(movie);
-                }
-            });
-
-            // fetch('https://resource-ghibli-api.onrender.com/films/' + select.value)
-            //     .then(response => response.json())
-            //     .then(movie => {
+            // moviesData.forEach(movie => {
+            //     if (movie.title === select.options[select.selectedIndex].text) {
             //         currentMovie = movie;
             //         showMovieInfo(movie);
-            //     })
-            //     .catch(err => window.alert(err));
+            //     }
+            // });
+
+            fetch('https://resource-ghibli-api.onrender.com/films/' + select.value)
+                .then(response => response.json())
+                .then(movie => {
+                    currentMovie = movie;
+                    showMovieInfo(movie);
+                })
+                .catch(err => window.alert(err));
         }
         else displayInfo.innerHTML = "";
     });
@@ -72,15 +74,16 @@ function run(movies) {
     resetReview.addEventListener("click", () => reviewsList.innerHTML = "");
 
     showPeople.addEventListener("click", () => {
-        if (select.value) {
+        if (select.value && !peopleShowed) {
             currentMovie.people.forEach(person => {
                 fetch('https://resource-ghibli-api.onrender.com' + person)
                     .then(response => response.json())
                     .then(personData => showPerson(personData))
                     .catch(err => window.alert(err));
             });
+            peopleShowed = true;
         }
-        else window.alert("Please select a movie first");
+        else window.alert("Please select a movie or select another movie");
     });
 }
 
@@ -105,4 +108,4 @@ let showPerson = (person) => {
 // So that testing can work as expected for now
 // A non-hacky solution is being researched
 
-setTimeout(run, 1000);
+// setTimeout(run, 1000);
