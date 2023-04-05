@@ -41,14 +41,47 @@ function run() {
  }
 
 
+ movieSelector.addEventListener("click", event => {
+    event.preventDefault()
+
+    
+    detailContainer.innerHTML = ""
+    
+    let movieName = movieSelector.value
+    let movie = findMovieByName(movieName)
+    currentMovie = movie
+   
+
+    let titleHeader = document.createElement("h3")
+    titleHeader.textContent = movie.title
+    detailContainer.append(titleHeader)
+
+    let year = document.createElement("h3")
+    year.textContent = movie.release_date
+    detailContainer.append(year)
+
+    let description = document.createElement("p")
+    description.textContent = movie.description
+    detailContainer.append(description)
+})
+
+let findMovieByName = name => {
+    for (const movie of movieList) {
+        if (movie.title === name) {
+            return movie
+        }
+    }
+}
+
+
+
+
  currentMovie = movieSelector.value
-
-
 
  submitButton.addEventListener("click", event => {
     event.preventDefault()
     let newReview = document.createElement("li")
-    newReview.innerHTML += `<strong>${currentMovie.title}</strong>` + " -- "
+    newReview.innerHTML += `<strong>${currentMovie.title}</strong>` + ": "
     newReview.innerHTML += reviewInput.value
     reviewList.append(newReview)
 })
