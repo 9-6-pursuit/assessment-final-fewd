@@ -83,7 +83,7 @@ function run(movies) {
             });
             peopleShowed = true;
         }
-        else window.alert("Please select a movie or select another movie");
+        // else window.alert("Please select another movie");
     });
 }
 
@@ -99,13 +99,16 @@ let showMovieInfo = (movie) => {
 }
 
 let showPerson = (person) => {
-    let personName = document.createElement("li");
-    personName.textContent = person.name;
-    people.append(personName);
+    if (person.name) {
+        let personName = document.createElement("li");
+        personName.textContent = person.name;
+        people.append(personName);
+    }
+    else window.alert("Does not hsve any person in this movie!");
 }
 
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
 // So that testing can work as expected for now
 // A non-hacky solution is being researched
 
-// setTimeout(run, 1000);
+setTimeout(run, 1000);
