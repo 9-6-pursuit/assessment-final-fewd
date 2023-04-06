@@ -13,10 +13,11 @@ function run() {
     .then((reset) => reset.json())
     .then((films) => {
       option(films);
-      displayPeople(); // Call displayPeople()
+			displayPeople();
     })
     .catch((error) => console.log(error));
 }
+
 
 
 function option(films) {
@@ -32,16 +33,20 @@ function option(films) {
 
 function selectChange() {
 	select.addEventListener("change", (event) => {
-	console.log(event.target.value);
-	const filmID = event.target.value;
-	const filmByID = `https://resource-ghibli-api.onrender.com/films/${filmID}`;
-	fetch(filmByID)
-		.then((reset) => reset.json())
-		.then((film) => displayMovieDetail(film))
-		.catch((error) => console.log(error));
+			console.log(event.target.value);
+			const filmID = event.target.value;
+			const filmByID = `https://resource-ghibli-api.onrender.com/films/${filmID}`;
+			fetch(filmByID)
+					.then((reset) => reset.json())
+					.then((film) => {
+							displayMovieDetail(film);
+					})
+					.catch((error) => console.log(error));
 	});
 }
-	selectChange();
+selectChange();
+
+
 
 
 function displayMovieDetail(film) {
@@ -89,35 +94,36 @@ reviewSubmit();
 
 
 
-function displayPeople() {
-  const peopleUrl = "https://resource-ghibli-api.onrender.com/people";
-  const peopleButton = document.querySelector("#show-people");
-  peopleButton.addEventListener("click", () => {
-    
-    const peopleList = document.querySelector("#peopleList");
-    peopleList.innerHTML = "";
 
-    // Get all people, filter people
-    fetch(peopleUrl)
-      .then((res) => res.json())
-      .then((allPeople) => {
-        console.log("allPeople", allPeople);
-        const filmID = select.value;
-        console.log(filmID);
-        const filteredPeople = allPeople.filter((person) =>
-          person.films.some((film) => film.split("/").slice(-2, -1)[0] == filmID)
-        );
-        console.log(filteredPeople);
-        
-        for (let person of filteredPeople) {
-          const li = document.createElement("li");
-          li.textContent = person.name;
-          peopleList.append(li);
-        }
-      });
-  });
+function displayPeople() {
+	const peopleButton = document.querySelector("#show-people");
+
+	peopleButton.addEventListener("click", () => {
+			if (!select.value) { // Check if movie is selected
+					alert("Please select a movie first");
+					return;
+			}
+
+			const filmID = select.value;
+			const filmPeopleUrl = `https://resource-ghibli-api.onrender.com/films/${filmID}/people`; // Fetch people from URL
+			const peopleList = document.querySelector("#peopleList");
+			peopleList.innerHTML = "";
+
+			fetch(filmPeopleUrl)
+					.then((res) => res.json())
+					.then((people) => {
+							for (let person of people) {
+									const li = document.createElement("li");
+									li.textContent = person.name;
+									peopleList.append(li);
+							}
+					})
+					.catch((error) => console.log(error));
+	});
 }
 displayPeople();
+
+
 
 
 
@@ -131,9 +137,7 @@ function resetReviews() {
 }
 resetReviews();
 
-
 setTimeout(run, 1000);
-
 
 
 
