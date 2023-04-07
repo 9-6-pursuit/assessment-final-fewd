@@ -1,9 +1,13 @@
 let movieSelect = document.getElementById("movie-selector")
-// let selected = movieSelect.value
-// console.log(selected);
+let displayInfo = document.getElementById("display-info")
 let submitButton = document.getElementById("comment-submit-button")
 let review = document.getElementById("review")
-let movieInfo = document.getElementById("movie-info")
+let addReview = document.querySelector("#reviews ul")
+let reset = document.getElementById("reset-reviews")
+let showButton = document.getElementById("show-people")
+let people = document.getElementById("people")
+let addPeople = document.querySelector("#people li")
+
 
 
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
@@ -19,17 +23,17 @@ function run() {
 }
 
 
-let movieList = [];
+let movieList = []
+
 
 let dropdown = (movies => {
-    
+    movieList = movies
     for (const movie of movies) {
-        movieList.push(movie)
+      
         let selectMovie = document.createElement("option")
-        selectMovie.setAttribute("value", `${movie.id}`)
-        selectMovie.setAttribute("text", `${movie.title}`)
         selectMovie.textContent = movie.title
         selectMovie.value = movie.title
+        
         movieSelect.append(selectMovie)
         // console.log(selectMovie);
 
@@ -37,49 +41,88 @@ let dropdown = (movies => {
 
     
 })
-
-// let result = movieSelect.value
-//  let infoHead = document.createElement("h3")
-//  infoHead.innerText = result
-// movieInfo.append(infoHead)
-
-// let result = movieSelect.value
-//     let  = find(name)
-//     currentEpisode = episode
+//creates drp-down empty//
+let emptyOption = document.createElement("option")
+movieSelect.prepend(emptyOption)
 
 
-// let find = name => {
-//     for (const el of movieList) {
-//         if (el.name === name) {
-//             return name
-//         }
-//     }
-// }
+//adding description of the selected option//
 
+movieSelect.addEventListener("change", event => {
+    // console.log(event.target);
+   
+    let addHeader = document.createElement("h3")
+    addHeader.innerText = movieSelect.value
+    displayInfo.append(addHeader)
 
- submitButton.addEventListener("click", event => {
+    let date = document.createElement("p")
+    let selected = findItem(movieSelect.value)
+    date.innerText = selected.release_date
+    displayInfo.append(date)
+
+    let description = document.createElement("p")
+    description.innerText = selected.description
+    displayInfo.append(description)
+    
+})
+
+function findItem(name) {
+    for (const movie of movieList) {
+        if (movie.title === name){
+            return movie
+        }
+    }
+}
+
+//review button//
+submitButton.addEventListener("click", event => {
     event.preventDefault()
-    let ulLsit = document.createElement("ul")
+    
+    if (!movieSelect.value){
+      alert("Please select a movie first")  
+    }
+    let selectedMovie = findItem(movieSelect.value)
     let comment = document.createElement("li")
-    comment.innerHTML += `<strong>${movie.title}</strong>` + " : "
+    
+
+    comment.innerHTML += `<strong>${selectedMovie.title}</strong>` + " -- "
     comment.innerHTML += review.value
-    ulLsit.append(comment)
-    submitButton.append(ulLsit)
+    addReview.append(comment)
+    review.value = ""
+})
+
+// reset button//
+
+reset.addEventListener("click", event => {
+    addReview.innerHTML = ""
 })
 
 
-//show people//
+//people//
+fetch("https://resource-ghibli-api.onrender.com/people")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+       
+    })
+    .catch(err => console.error(err));
 
-let show = 
+    showButton.addEventListener("click", event => {
+        event.preventDefault()
 
-//reset button//
-
-// let resetbutton = document.getElementById("reset-reviews")
-// resetButton.addEventListener("click", event =>{
-//     resetbutton.setAttribute("type", "reset")
-// })
+        let selectedMovie = findItem(movieSelect.value)
+        addPeople.innerText = eachName(selectedMovie.people)
+        people.append(addPeople)
 
 
+
+    })
+
+    function eachName(name){
+        for (const el of name) {
+            return el
+        }
+    }
 
 
 
