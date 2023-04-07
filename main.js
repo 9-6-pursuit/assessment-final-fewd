@@ -8,6 +8,8 @@ let commentInput = document.getElementById('review')
 let commentList = document.getElementById('comment-list')
 let resetButton = document.getElementById('reset-reviews')
 let showPeopleButton = document.getElementById(`show-people`)
+let peopleSection = document.getElementById(`people-section`)
+
 
 
 
@@ -57,9 +59,10 @@ movieSelector.addEventListener(`click`, event => {
     let movie = findMovieByValue(movieValue)
     currentMovie = movie
     console.log(currentMovie)
-    if (currentMovie.people) {
+    if (currentMovie.people[0] !== "/people/") {
         currentMoviePeople = currentMovie.people
     } else {
+        peopleSection.innerHTML = ""
         console.log(`no people in this movie`)
     }
 
@@ -105,14 +108,14 @@ resetButton.addEventListener("click", event => {
 })
 
 let peopleUrlArray = []
-let peopleSection = document.getElementById(`people-section`)
 peopleSection.textContent = ""
 
 showPeopleButton.addEventListener("click", event => {
     event.preventDefault()
     let person
-    
+    peopleUrlArray = []
     for (const people of currentMoviePeople) {
+        peopleSection.innerHTML = ""
         person = ""
         person = people
         let newPersonUrl = `${peopleUrl}` + `${person}`
