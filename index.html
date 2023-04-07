@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
     <title>Studio Ghibli API</title>
 </head>
 <body>
@@ -16,11 +18,13 @@
         <section>
             <h2>Select a movie</h2>
             <select id="titles">
-                <option id="title"></option>
+                <option></option>
             </select>
             <div id="film-detail-container"></div>
-               <input id="search" type="submit" value="Select film">
+            <input id="search" type="submit" value="Select film">
         </section>
+            
+        <div id="film-detail-container"></div>
 
         <section>
             <h2>Add a review</h2>
@@ -44,7 +48,7 @@
 
         <section id="reviews">
             <h2>Reviews</h2>
-            <ul></ul>
+            <ul id="review-list"></ul>
             <button id="reset-reviews">Reset Reviews</button>
         </section>
 

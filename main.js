@@ -1,52 +1,103 @@
-const titleSelector = document.getElementById('title')
+const titleSelectorButton = document.getElementById('titles')
 const reviewSubmitButton = document.getElementById('review-submit-button')
-const showPeople = document.getElementById('show-people')
-const resetReviews = document.getElementById('reset-reviews')
+// const showPeople = document.getElementById('show-people')
+// const resetReviews = document.getElementById('reset-reviews')
 const detailContainer = document.getElementById('film-detail-container')
-const submitFilmSelector = document.getElementById('search')
+// const submitFilmSelector = document.getElementById('search')
+let reviewInput = document.getElementById('review')
+let reviewList = document.getElementById('review-list')
 
 fetch(`https://resource-ghibli-api.onrender.com/films`)
 .then(response => response.json())
 .then(response => {
-populateFormDropDown(response)
+    populateFormDropDown(response)
 })
 .catch(err => console.error(err))
 
-let filmList = []
+let titleList = []
+let currentFilm = null
 
-let populateFormDropDown = films => {
-    let counter = 0
-    for (const film of films) {
-        counter += 1
-        filmList.push(film)
-        let newOption = document.createElement("option")
-        newOption.textContent = film.title
-        newOption.value = film.title
-        titleSelector.append(newOption)
 
+    let populateFormDropDown = films => {
+        let counter = 0
+        for (const film of films) {
+            counter += 1 
+            titleList.push(film)
+            let newOption = document.createElement('option')
+            newOption.textContent = film.title
+            newOption.value = film.title
+            titleSelectorButton.append(newOption)
+        }
     }
-}
 
-submitFilmSelector.addEventListener('click', event => {
-    event.preventDefault()
+
+    titleSelectorButton.addEventListener('click', event => {
+        event.preventDefault()
+        
+        detailContainer.innerHTML = ''
+    
+        let filmName = titleSelectorButton.value
+        let film = findFilmByName(filmName)
+        currentFilm = film
+    
+        let titleHeader = document.createElement('h3')
+        titleHeader.textContent = film.title
+        detailContainer.append(titleHeader)
+
+        let description = document.createElement('p')
+        description.textContent = description.description
+        detailContainer.append(description)
+    
+    })
+
+    let findFilmByName = title => {
+        for (const film of titleList) {
+            if(film.title === title) {
+                return film
+            }
+        }
+    }
+
+    reviewSubmitButton.addEventListener('click', event => {
+        event.preventDefault()
+
+        let newReview = document.createElement('li')
+        newReview.innerHTML += `<strong>${currentFilm.title}</strong>` + '--'
+        newReview.innerHTML += reviewInput.value
+        reviewList.append(newComment)
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+// submitFilmSelector.addEventListener('click', event => {
+//     event.preventDefault()
     
     
 
-    detailContainer.innerHTML = ''
+//     detailContainer.innerHTML = ''
 
-    let filmName = titleSelector.title
-    let film = findFilmByName(filmName)
-    currentFilm = film
+//     let filmName = titleSelector.title
+//     let film = findFilmByName(filmName)
+//     currentFilm = film
 
-     let titleHeader = document.createElement('h3')
-     titleHeader.textContent = film.title
-     detailContainer.append(titleHeader)
+//      let titleHeader = document.createElement('h3')
+//      titleHeader.textContent = film.title
+//      detailContainer.append(titleHeader)
 
-     let description = document.createElement('p')
-     description.textContent = film.description
-     detailContainer.append(description)
+//      let description = document.createElement('p')
+//      description.textContent = film.description
+//      detailContainer.append(description)
 
-})
+// })
 
 
 
