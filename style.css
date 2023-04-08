@@ -1,0 +1,40 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+
+}
+
+header img{
+  
+    background-color: skyblue;
+    padding: 25px;
+
+    width: 156px;
+
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+
+    background-color: skyblue;
+
+    align-items: center;
+    
+    width: 75%;
+}
+
+@media screen and (min-width: 500px) {
+    #reviews {
+        display: block;
+        
+    
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    #reviews {
+        display: none;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Studio Ghibli API</title>
+</head>
+<body>
+    <header>
+        <img src="images/ghibli-logo.png">
+        <h1>Ghibli Review App</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Select a movie</h2>
+            <select id="titles">
+                <option></option>
+            </select>
+            <div id="film-detail-container"></div>
+        </section>
+            
+        <div id="film-detail-container"></div>
+
+        <section>
+            <h2>Add a review</h2>
+            <form>
+                <label for="review">Your review:</label>
+                <input id="review" type="text">
+            </form>
+        </section>
+
+        <section>
+            <h2>Movie Details</h2>
+            <div id="display-info"></div>
+        </section>
+
+        <section>
+            <h2>People</h2>
+            <ol></ol>
+            <button id="show-people">Show People</button>
+        </section>
+
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <ul id="review-list"></ul>
+            <button id="reset-reviews">Reset Reviews</button>
+        </section>
+
+
+    </main>
+    
+    
+</body>
+</html>
