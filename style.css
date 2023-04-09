@@ -1,0 +1,41 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: 150px;
+    width: 75%;
+}
+  
+img {
+    height: 150px;
+    float: left;
+}
+
+h1 {
+    display: inline;
+    text-align: right;
+}
+
+main {
+    width: 75%;    
+}
+
+label {
+    display: block;
+}
+
+@media (max-width: 500px) {
+    #reviews {
+      display: none;
+    }
+}
+  
