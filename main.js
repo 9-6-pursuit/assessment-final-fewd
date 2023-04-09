@@ -34,7 +34,7 @@ function run(movies) {
         people.innerHTML = "";
         peopleShowed = false;
         if (select.value) {
-            // event.preventDefault();
+            event.preventDefault();
 
             // moviesData.forEach(movie => {
             //     if (movie.title === select.options[select.selectedIndex].text) {
@@ -44,12 +44,12 @@ function run(movies) {
             // });
 
             fetch('https://resource-ghibli-api.onrender.com/films/' + select.value)
-                .then(response => response.json())
-                .then(movie => {
-                    currentMovie = movie;
-                    showMovieInfo(movie);
-                })
-                .catch(err => window.alert(err));
+            .then(response => response.json())
+            .then(movie => {
+                currentMovie = movie;
+                showMovieInfo(movie);
+            })
+            .catch(err => window.alert(err));
         }
         else displayInfo.innerHTML = "";
     });
@@ -77,13 +77,19 @@ function run(movies) {
         if (select.value && !peopleShowed) {
             currentMovie.people.forEach(person => {
                 fetch('https://resource-ghibli-api.onrender.com' + person)
-                    .then(response => response.json())
-                    .then(personData => showPerson(personData))
-                    .catch(err => window.alert(err));
+                .then(response => response.json())
+                .then(personData => {
+                    if (personData.name) {
+                        let personName = document.createElement("li");
+                        personName.textContent = personData.name;
+                        people.append(personName);
+                        peopleShowed = true;
+                    }
+                    else window.alert("There is no people in this movie!");
+                })
+                .catch(err => window.alert(err));
             });
-            peopleShowed = true;
         }
-        // else window.alert("Please select another movie");
     });
 }
 
@@ -98,14 +104,14 @@ let showMovieInfo = (movie) => {
     displayInfo.append(title, year, desc);
 }
 
-let showPerson = (person) => {
-    if (person.name) {
-        let personName = document.createElement("li");
-        personName.textContent = person.name;
-        people.append(personName);
-    }
-    else window.alert("Does not hsve any person in this movie!");
-}
+// let showPerson = (person) => {
+//     if (person.name) {
+//         let personName = document.createElement("li");
+//         personName.textContent = person.name;
+//         people.append(personName);
+//     }
+//     else window.alert("There is no people in this movie!");
+// }
 
 // This function will "pause" the functionality expected on load long enough to allow Cypress to fully load
 // So that testing can work as expected for now
