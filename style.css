@@ -1,0 +1,84 @@
+/* body{
+    background-color: lavender;
+    font-family: monospace;
+}
+
+header{
+    background: skyblue;
+    width: 75%;
+    height: 200px;
+    margin-left: 150px;
+}
+
+.header img {
+    float: left;
+    width: 400px;
+    height: 200px;
+  }
+
+.header h1{
+    font-weight: bolder;
+    font-style: monospace;
+    text-align: right;
+}
+
+.reviews{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.movie-selector{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.movie-detail-container{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.people {
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+}
+
+.reset-reviews{
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 150px;
+} */
+    
+
+body{
+    width: 80%;
+    background-color: lavender;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+header{
+    background-color: skyblue;
+    height: 100%;
+    width: 75%;
+}
+.header-title{
+    text-align: end;
+}
+
+
+.ghibli-logo{
+    height: 100%;
+    width:50%;
+}
+
+.header-title{
+    margin-right: auto;
+}
