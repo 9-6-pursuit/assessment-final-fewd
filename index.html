@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,20 +17,19 @@
     </div>
 <main>
 
-    <section class="movie-selector">
+    <section class="movie-selector" id="movie-selector">
         <h2>Select a movie</h2>
-        <form action="#">
-            <select name="movie-selector" id="movie-selector"></select>
-            <input type="submit" id="submit-button" value="Select">
-        </form>
+            <select name="titles" id="selector">
+                <option value=""></option>
+            </select>
     </section>
 
-    <section class="reviews">
+    <section class="reviews" id="movie-review">
         <h2>Add a review</h2>
         <form action="">
             <label for="review">Your review:</label>
             <input id="review" type="text">
-            <input type="submit">
+            <input type="submit" id="submit-button">
        </form>
     </section>
 
@@ -39,7 +38,7 @@
         <div id="display-info"></div>
     </section>
 
-    <section class="people">
+    <section class="people" id="people-names">
         <h2>People</h2>
         <ol></ol>
         <button id="show-people">Show People</button>
@@ -47,10 +46,65 @@
 
     <section id="reviews" class="reset-reviews">
         <h2>Reviews</h2>
-        <ul></ul>
         <button id="reset-reviews">Reset Reviews</button>
+        <ul id="review-list"></ul>
     </section>
 
 </main>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Ghibli</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="header-title"> Ghibli Review App</h1>
+        <img src="./images/ghibli-logo.png" alt="ghibli-logo" class="ghibli-logo">
+    </header>
+
+    <main>
+        <section id="movie-selector">
+            <h2>Select a Movie:</h2>
+            <select name="titles" id="titles">
+                <option value=""></option>
+            </select>
+        </section>
+
+        <section id="movie-review">
+            <h2>Add a review</h2>
+            <form id="movie-review-form">
+                <label for="review">Your review:</label>
+                <input type="text" id="review">
+                <input type="submit">
+            </form>
+        </section>
+
+        <section id="movie-descriptions">
+            <h2>Movie details</h2>
+            <div id="display-info">
+            </div>
+        </section>
+
+        <section id="peoples-names">
+            <h2>People</h2>
+            <ol id="listOfPeople"></ol>
+            <button id="show-people">Show People</button>
+        </section>
+
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <ul id="submittedReviews"></ul>
+            <button id="reset-reviews">Resets Reviews</button>
+        </section>
+    </main>
+
 </body>
 </html>
