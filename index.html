@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Review App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500&family=Shantell+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+    <header class="header content-container">
+        <img src="./images/ghibli-logo.png" alt="Ghibli logo" class="logo"/>
+        <h1 class="app-title">Ghibli Review App</h1>
+    </header>
+    <div class="content-container">
+        <main>
+            <section class="movie-selection">
+                <h2>Select a movie</h2>
+                <select id="movie-titles">
+                    <option value="">Select a movie</option>
+                </select>
+            </section>
+            <section class="movie-details">
+                <h2>Movie details</h2>
+                <div id="display-info"></div>
+            </section>
+    
+            <section>
+                <button type="submit" id="show-people">Show People</button>
+                <div id="people-details">
+                </div>
+            </section>
+            <section class="review-form">
+                <h2>Add a review</h2>
+                <form>
+                    <label for="review" class="sr-only">Your review:</label>
+                    <input id="review" type="text" placeholder="Your review"/>
+                    <input type="submit" id="submit-review" title="Submit" />
+                </form>
+            </section>
+    
+            <section id="reviews" class="reviews">
+                <h2>Reviews</h2>
+                <ul id="reviews-list"></ul>
+                <button type="submit" id="reset-reviews">Reset Reviews</button>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>    

@@ -87,7 +87,7 @@ While it does not need to look exactly the same, it should include the following
   - [ ] `section`
     - [ ] `h2`: `Select a movie`
     - [ ] `select` `id` `titles`: starts with one `option` (blank, no value), remaining `option`s will be populated with the movie titles from the API
-  - [ ] `section`
+  - [ ] `section` 
   - [ ] `h2`: `Add a review`
     - [ ] `form`
       - [ ] `label`, `for` = `review`: `Your review`
