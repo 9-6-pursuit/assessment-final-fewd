@@ -1,33 +1,30 @@
 body {
+    background-color: lavender;
     display: flex;
     flex-direction: column;
-    background-color: lavender;
     font-family: monospace;
 }
 
-
-.header-block {
+header {
+    background-color: skyblue;
     display: flex;
     flex-direction: row;
-    background-color: skyblue;
-    width: 80%;
-    margin-left: 110px;
-    margin-right: 80px;   
+    margin-left: 12%;
+    width: 75%;
+    height: 50%;
+}
+
+h1 {
+    margin-left: 25%;
 }
 
 img {
-    max-width: 75%;
-}
-
-.header-title {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: right;
+    width: 37%;
+    height: 50%;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    margin-left:10%;
+    margin-left: 12%;
 }

@@ -6,38 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Studio Ghibli Review App</title>
+    
+    <title>Studio Ghibli Review App </title>
 </head>
 <body>
-    <header>
-        <div class="header-block">
-            <div class="image-block"> 
-                <img src="images/ghibli-logo.png" alt="ghibli-logo">
-            </div>
-                <h1 class="header-title"> Ghibli Review App</h1>
-        </div>
-    </header>
-    <main>
-        <div class="movie-selection-space">
-            <br>
-            <h2> Select a movie </h2>
-            <select name="movie-selector" id="movie-selector">
-                <option id="films" value=""></option>
-            </select>
-        </div>
-        <br>
-        <div class="review-space">
-            <h2>Add a review</h2>
+        <header>
+            <img src="images/ghibli-logo.png" alt="studio-ghibli-logo">
+            <h1>Ghibli App Review</h1>
+        </header>
+        <main>
+            <section id="titles">
+                <h2>Select a movie</h2>
+                <select name="movie-selector" class="movie-selector" id="movie-selector">
+                    <option value=""></option>
+                </select>
+            </section>
+            <section>
+                <h2>Add a review</h2>
+                <form>
+                    <label for="review">Your review:</label> <br>
+                    <input type="text" id="review">
+                    <input type="submit">
+                </form>
+            </section>
+            
 
-            <form action="add-review">
-                <label for="review">Your review:</label> <br> <br>
-                <input type="text" name="review-box" id="review-box">
-                <input type="submit" class="submit-review">
-            </form>
-        </div>
-        <div>
+            <section>
+                <h2>Movie details</h2>
+                <div id="display-info" >
+                    <h3> </h3>
+                    <p> </p>
+                    <p> </p>
+                </div>
+            </section>
 
-        </div>
-    </main>
+
+            <section>
+                <h2>People</h2>
+                <ol>
+
+                </ol><br>
+                <button id="show-people">Show People</button>
+            </section>
+            <section id="reviews">
+                <h2>Reviews</h2>
+                <ul>
+
+                </ul>
+                <button id="reset-reviews">Reset Reviews</button>
+            </section>
+        </main>
+    
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
