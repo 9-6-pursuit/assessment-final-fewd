@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Ghibli Review App </title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!--   h1: Ghibli Review App 
+    img: An image of the studio's logo should be in the header -->
+    <header>
+        <img id="logo" src="./images/ghibli-logo.png" alt="Ghibli logo" class="test-img">
+        <h1>Studio Ghibli Review App</h1>
+    </header>
+    <main>
+        <section class="movie-titles">
+            <h2>Select a movie</h2>
+            <select name="movies" id="titles">
+                <!--  select id titles: starts with one option (blank, no value), remaining options will be populated with the movie titles from the API -->
+                <option value="" id=""></option>
+            </select>
+        </section> 
+    
+        <section class="enter-review">
+            <h2>Add a review</h2>
+            <form>
+            <!-- 
+            h2: Add a review
+            form
+            label, for = review: Your review
+            input, id = review: type text
+            input: type submit 
+            -->
+                <label for="review">Your review</label>
+                <input type="text" id="review">
+                <input type="submit">
+            </form>
+        </section>
+    
+        <section class="movie-details">
+            <h2>Movie details</h2>
+            <div id="display-info">
+             <!-- 
+            h2: Movie details
+            div, id = display-info: starts empty, will be populated with h3 and two p elements, when a movie is selected
+             -->
+            </div>
+            <img class="movie-img">
+        </section>
+    
+        <section class="people">
+            <h2>People</h2>
+            <ol>
+            <!-- 
+            h2: People
+            ol: starts empty, will be populated with
+            li as people names are added
+            button, id = show-people, text Show People
+             -->
+            </ol>
+            <button id="show-people">Show People</button>
+        </section>
+    
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <ul>
+            <!--  
+            h2: Reviews
+            ul: starts empty, will be populated with 
+                li as reviews are added
+            button, id = reset-reviews, text Reset Reviews
+            -->
+            </ul>
+            <button id="reset-reviews">Reset Reviews</button>
+        </section>
+
+    </main>
+
+</body>
+</html>
