@@ -20,9 +20,6 @@ function getMovieTitles(movies) {
     }
 };
 
-
-
-
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 
 function run() {
@@ -86,7 +83,7 @@ movieAppend.addEventListener('click', (event) => {
             console.log(data);
 
             if (!document.querySelector('#display-info').innerText) {
-                alert('Please select a movie first')
+                alert('Select a movie.')
             } else {
                 for (let person of data.people) {
                     people.innerHTML = '';
@@ -100,7 +97,7 @@ movieAppend.addEventListener('click', (event) => {
                                 console.log(displayPeople);
                                 people.append(displayPeople);
                             } else {
-                                displayPeople.innerText = 'This movie has no people listed';
+                                displayPeople.innerText = 'Sorry, not a winner. No one found.';
                                 console.log(displayPeople);
                                 people.append(displayPeople);
                             };
@@ -109,3 +106,29 @@ movieAppend.addEventListener('click', (event) => {
             }
         });
 })
+
+/* - When the user enters their review into the text input and presses the "Submit Review" button, they should see:
+- [ ] The review, inside of an `unordered `list of `li` elements, with the name of the movie in a `strong` element and the text of the review afterwards.
+- [ ] The review text should be cleared from the text input. - */
+
+yourReview.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!document.querySelector('#display-info').innerText) {
+        alert('Select a movie title.')
+        console.log(alert('Select a movie title.'))
+    } else if (!document.querySelector('#review').value) {
+        alert('Enter a review.')
+    } else {
+        let reviewContent = document.querySelector('#review').value;
+        document.querySelector('#review').value = '';
+        let newReviewTitle = document.querySelector('#display-info h3').innerText;
+        let newReview = document.createElement('li');
+        newReview.innerHTML = `<strong>${newReviewTitle}:</strong> ${reviewContent}`;
+        movieReview.append(newReview);
+
+        movieReviewReset.addEventListener('click', (event) => {
+            event.preventDefault();
+            movieReview.innerHTML = '';
+        })
+    }
+});
