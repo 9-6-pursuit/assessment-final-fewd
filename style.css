@@ -1,0 +1,55 @@
+body {
+    align-items: center;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Forum', cursive;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    align-self: center;
+    animation: mymove 2s infinite alternate;
+    background-color:  #FFF01F;
+    background-image: url("images/ghibli-logo.png");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    border: 5px solid red;
+    border-radius: 15px;
+    height: 340px;
+    padding-right: 10px;
+    text-align: right;
+    width: 75%;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+img {
+    display: none;
+    max-width: 30%;
+}
+
+.test-img {
+    display: none;
+}
+
+#reviews {
+    display: block;
+}
+
+@media screen and (max-width: 500px) {
+    #reviews {
+        display: none;
+    }
+}
+
+@keyframes mymove {
+    from {opacity:0;}
+    to {opacity: 1;}
+}
