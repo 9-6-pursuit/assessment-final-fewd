@@ -75,3 +75,37 @@ movieDropdown.addEventListener('change', (event) => {
     };
 
 });
+
+// When the `Show People` button is clicked, it should generate an `ordered` list of people names associated with the movie.
+
+movieAppend.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch(`${filmURL}${movieDropdown.value}`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+
+            if (!document.querySelector('#display-info').innerText) {
+                alert('Please select a movie first')
+            } else {
+                for (let person of data.people) {
+                    people.innerHTML = '';
+
+                    let displayPeople = document.createElement('li');
+                    fetch(`${peopleURL}${person}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.name !== undefined) {
+                                displayPeople.innerText = data.name;
+                                console.log(displayPeople);
+                                people.append(displayPeople);
+                            } else {
+                                displayPeople.innerText = 'This movie has no people listed';
+                                console.log(displayPeople);
+                                people.append(displayPeople);
+                            };
+                        });
+                }
+            }
+        });
+})
