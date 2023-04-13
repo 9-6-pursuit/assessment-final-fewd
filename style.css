@@ -1,0 +1,30 @@
+body {
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+header {
+    background-color: skyblue;
+    display: flex;
+    flex-direction: row;
+    margin-left: 12%;
+    width: 75%;
+    height: 50%;
+}
+
+h1 {
+    margin-left: 25%;
+}
+
+img {
+    width: 37%;
+    height: 50%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12%;
+}
