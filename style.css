@@ -1,0 +1,41 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+    margin: 0;
+  }
+
+h1 {
+    display: block;
+   
+
+    margin-left: auto;
+    margin-bottom: auto;
+}
+  
+  header {
+    margin: 0 auto;
+    background-color: skyblue;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 150px;
+    width: 75%;
+  }
+  
+  header img {
+    height: 100%;
+    align-self: baseline;
+  }
+
+  header h1{
+    margin: 0;
+  }
+
+  main{
+    margin: 0 auto;
+    width: 75%;
+  }
+
+  main select {
+    min-width: 250px;
+  }
