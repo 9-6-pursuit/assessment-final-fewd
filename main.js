@@ -6,7 +6,7 @@ let addReview = document.querySelector("#reviews ul")
 let reset = document.getElementById("reset-reviews")
 let showButton = document.getElementById("show-people")
 let people = document.getElementById("people")
-let addPeople = document.querySelector("#people li")
+//let addPeople = document.querySelector("#people ol")
 
 
 
@@ -50,7 +50,8 @@ movieSelect.prepend(emptyOption)
 
 movieSelect.addEventListener("change", event => {
     // console.log(event.target);
-   
+   displayInfo.innerText = ""
+
     let addHeader = document.createElement("h3")
     addHeader.innerText = movieSelect.value
     displayInfo.append(addHeader)
@@ -99,30 +100,34 @@ reset.addEventListener("click", event => {
 
 
 //people//
-fetch("https://resource-ghibli-api.onrender.com/people")
+
+    
+showButton.addEventListener("click", event => {
+    event.preventDefault()
+    let selectedMovie = findItem(movieSelect.value)
+    // console.log(selectedMovie.people);
+    let character = selectedMovie.people
+    fetch(`https://resource-ghibli-api.onrender.com/people`)
     .then(response => response.json())
-    .then(data => {
-        console.log(data);
-       
+    .then(peopleName => {
+        addingPeople(peopleName);
+        //console.log(peopleName);
     })
     .catch(err => console.error(err));
 
-    showButton.addEventListener("click", event => {
-        event.preventDefault()
+        let addingPeople = (peopleName => {
+            for (const person of peopleName) {
+                if (character.includes(person.url)){
+                    let addPeople = document.createElement("li")
+                    addPeople.innerText = person.name
+                    people.append(addPeople)
+                }              
+            }
+        }) 
 
-        let selectedMovie = findItem(movieSelect.value)
-        addPeople.innerText = eachName(selectedMovie.people)
-        people.append(addPeople)
+})
 
 
-
-    })
-
-    function eachName(name){
-        for (const el of name) {
-            return el
-        }
-    }
 
 
 
